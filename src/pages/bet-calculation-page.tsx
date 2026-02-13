@@ -1,12 +1,18 @@
+import { SystemBetCalculator } from "@/features/bet-calculator/ui/system-bet-calculator";
+
 const BetCalculationPage = () => {
   return (
-    <div>
-      <h1 className="text-2xl font-semibold text-primary">
-        Bet Calculation Page
-      </h1>
-      <p className="mt-2 text-zinc-400">
-        This is the bet calculation page. Routing works correctly.
-      </p>
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-semibold text-zinc-100">
+          System Bet Calculator
+        </h1>
+        <p className="mt-2 text-zinc-400">
+          Compute potential winnings for system bets (e.g. 2/3, 3/4). Enter odds
+          for each event, select the system type, and your total stake.
+        </p>
+      </div>
+      <SystemBetCalculator />
     </div>
   );
 };

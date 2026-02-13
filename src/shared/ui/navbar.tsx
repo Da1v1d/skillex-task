@@ -1,0 +1,22 @@
+import type { ComponentProps, ReactNode } from "react";
+
+type NavbarProps = ComponentProps<"nav"> & {
+  children: ReactNode;
+  className?: string;
+  ariaLabel?: string;
+};
+
+export const Navbar = ({
+  children,
+  className = "",
+  ariaLabel = "Main navigation",
+}: NavbarProps) => {
+  return (
+    <nav
+      className={`border-b border-zinc-800 bg-zinc-900 px-4 py-3 ${className}`.trim()}
+      aria-label={ariaLabel}
+    >
+      <ul className="flex gap-4">{children}</ul>
+    </nav>
+  );
+};

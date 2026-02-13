@@ -37,3 +37,15 @@ export const calculateSystemBet = (
     totalReturn,
   };
 };
+
+export const formatNumber = (
+  value: number,
+  options?: Intl.NumberFormatOptions,
+): string =>
+  Number.isNaN(value) ? "-" : value.toLocaleString(undefined, options);
+
+export const formatCurrency = (value: number): string =>
+  formatNumber(value, { minimumFractionDigits: 2 });
+
+export const formatOdds = (value: number): string =>
+  Number.isNaN(value) ? "-" : value.toFixed(2);

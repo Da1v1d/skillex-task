@@ -1,8 +1,9 @@
+import { binomialCoefficient } from "@/shared/lib/combinatorics";
 import { Card, Button, Input, Select } from "@/shared/ui";
 import { SYSTEM_BET_OPTIONS } from "@/features/bet-calculator/lib/constants";
 import { OddsInput } from "@/features/bet-calculator/ui/elements/odds-input";
 
-type CalculatorFormProps = {
+type IProps = {
   systemValue: string | undefined;
   onSystemChange: (value: string | undefined) => void;
   odds: (number | "")[];
@@ -27,7 +28,7 @@ export const CalculatorForm = ({
   onStakeChange,
   onCompute,
   error,
-}: CalculatorFormProps) => {
+}: IProps) => {
   const selectedOption = SYSTEM_BET_OPTIONS.find(
     (o) => o.value === systemValue,
   );
@@ -42,9 +43,7 @@ export const CalculatorForm = ({
     <Card title="System Bet Calculator" aria-label="Calculator form">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="mb-1 block text-sm text-zinc-400">
-            System type
-          </label>
+          <label className="mb-1 block text-sm text-zinc-400">System</label>
           <Select
             options={selectOptions}
             value={systemValue}
@@ -52,6 +51,13 @@ export const CalculatorForm = ({
             placeholder="Select system…"
             aria-label="System bet type"
           />
+          {selectedOption && (
+            <p className="mt-1.5 text-xs text-zinc-500">
+              A system {selectedOption.k} from {selectedOption.n} contains{" "}
+              {binomialCoefficient(selectedOption.n, selectedOption.k)}{" "}
+              combinations
+            </p>
+          )}
         </div>
 
         <div>

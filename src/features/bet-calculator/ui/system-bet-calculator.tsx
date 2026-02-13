@@ -8,9 +8,9 @@ import {
 } from "@/features/bet-calculator/lib/validation";
 import { calculateSystemBet } from "@/features/bet-calculator/lib/utils";
 
+import type { SystemBetCalculationResult } from "@/features/bet-calculator/lib/types";
 import { CalculatorForm } from "@/features/bet-calculator/ui/blocks/calculator-form";
 import { CalculatorResults } from "@/features/bet-calculator/ui/blocks/calculator-results";
-import type { SystemBetCalculationResult } from "@/features/bet-calculator/lib/types";
 
 export const SystemBetCalculator = () => {
   const [systemValue, setSystemValue] = useState<string | undefined>("2/3");
@@ -85,7 +85,11 @@ export const SystemBetCalculator = () => {
         onCompute={handleCompute}
         error={error}
       />
-      <CalculatorResults result={result} hasComputed={hasComputed} />
+      <CalculatorResults
+        result={result}
+        hasComputed={hasComputed}
+        stake={stake}
+      />
     </div>
   );
 };

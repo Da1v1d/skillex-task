@@ -1,18 +1,17 @@
 import { Card } from "@/shared/ui";
 import type { SystemBetCalculationResult } from "@/features/bet-calculator/lib/types";
+import {
+  formatCurrency,
+  formatOdds,
+} from "@/features/bet-calculator/lib/utils";
 
-type CalculatorResultsProps = {
+type IProps = {
   result: SystemBetCalculationResult | null;
   hasComputed: boolean;
+  stake?: string;
 };
 
-const formatCurrency = (value: number): string =>
-  value.toLocaleString(undefined, { minimumFractionDigits: 2 });
-
-export const CalculatorResults = ({
-  result,
-  hasComputed,
-}: CalculatorResultsProps) => {
+export const CalculatorResults = ({ result, hasComputed, stake }: IProps) => {
   if (!hasComputed) {
     return (
       <Card title="Results" aria-label="Calculation results">
@@ -45,21 +44,24 @@ export const CalculatorResults = ({
           <table className="w-full text-left text-sm">
             <thead>
               <tr className="border-b border-zinc-700 text-zinc-400">
-                <th className="pb-2 pr-4 font-medium">Combination</th>
-                <th className="pb-2 pr-4 font-medium">Odds product</th>
-                <th className="pb-2 font-medium">Payout</th>
+                <th className="pb-2 pr-4 font-medium">#</th>
+                <th className="pb-2 pr-4 font-medium">Combinations</th>
+                <th className="pb-2 pr-4 font-medium">Odds</th>
+                <th className="pb-2 font-medium">Winnings</th>
               </tr>
             </thead>
             <tbody>
               {result.combinations.map((combo, i) => (
-                <tr key={i} className="border-b border-zinc-800">
-                  <td className="py-2 pr-4 text-zinc-100">
-                    Events {comboLabels[i]}
+                <tr
+                  key={i}
+                  className="border-b border-zinc-800 last:border-b-0 [&>td]:py-3 [&>td]:pr-4"
+                >
+                  <td className="text-zinc-400">{i + 1}</td>
+                  <td className="text-zinc-100">Events {comboLabels[i]}</td>
+                  <td className="text-zinc-300">
+                    {formatOdds(oddsProducts[i])}
                   </td>
-                  <td className="py-2 pr-4 text-zinc-300">
-                    {oddsProducts[i].toFixed(2)}
-                  </td>
-                  <td className="py-2 text-zinc-100">
+                  <td className="text-zinc-100">
                     {formatCurrency(combo.payout)}
                   </td>
                 </tr>
@@ -70,15 +72,20 @@ export const CalculatorResults = ({
 
         <div className="flex flex-col gap-1 border-t border-zinc-700 pt-4">
           <p className="text-zinc-400">
+            Winnings:{" "}
+            <span className="font-medium text-zinc-100">
+              {formatCurrency(result.totalReturn)}
+            </span>
+          </p>
+          {stake && (
+            <p className="text-zinc-400">
+              Stake: <span className="text-zinc-100">{stake}</span>
+            </p>
+          )}
+          <p className="text-zinc-400">
             Stake per combination:{" "}
             <span className="text-zinc-100">
               {formatCurrency(result.stakePerCombination)}
-            </span>
-          </p>
-          <p className="text-zinc-400">
-            Total return (all win):{" "}
-            <span className="font-medium text-zinc-100">
-              {formatCurrency(result.totalReturn)}
             </span>
           </p>
         </div>

@@ -1,6 +1,6 @@
-import { Card, Button, Select } from "@/shared/ui";
+import { Card, Button, Input, Select } from "@/shared/ui";
 import { SYSTEM_BET_OPTIONS } from "@/features/bet-calculator/lib/constants";
-import { OddsInput } from "../elements/odds-input";
+import { OddsInput } from "@/features/bet-calculator/ui/elements/odds-input";
 
 type CalculatorFormProps = {
   systemValue: string | undefined;
@@ -70,7 +70,7 @@ export const CalculatorForm = ({
           <label htmlFor="stake" className="mb-1 block text-sm text-zinc-400">
             Total stake
           </label>
-          <input
+          <Input
             id="stake"
             type="number"
             inputMode="decimal"
@@ -78,7 +78,7 @@ export const CalculatorForm = ({
             step={0.01}
             value={stake}
             onChange={(e) => onStakeChange(e.target.value)}
-            className="w-full max-w-[140px] rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="max-w-[140px]"
             placeholder="10.00"
             aria-label="Total stake amount"
           />

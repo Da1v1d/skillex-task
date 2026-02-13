@@ -1,3 +1,4 @@
+import { Input } from "@/shared/ui";
 import { cn } from "@/shared/lib/utils";
 
 type OddsInputProps = {
@@ -32,7 +33,7 @@ export const OddsInput = ({
         {displayOdds.map((odd, index) => (
           <label key={index} className="flex flex-col gap-1">
             <span className="text-xs text-zinc-400">Event {index + 1}</span>
-            <input
+            <Input
               type="number"
               inputMode="decimal"
               min={0.01}
@@ -40,7 +41,7 @@ export const OddsInput = ({
               step={0.01}
               value={odd}
               onChange={(e) => handleOddsChange(index, e.target.value)}
-              className="w-20 rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-20"
               placeholder="1.50"
               aria-label={`Odd for event ${index + 1}`}
             />

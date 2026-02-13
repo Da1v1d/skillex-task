@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { validateOdds, validateStake, validateSystemType } from "./validation";
+import {
+  validateOdds,
+  validateStake,
+  validateSystemType,
+} from "@/features/bet-calculator/lib/validation";
 
 describe("validation", () => {
   describe("validateOdds", () => {

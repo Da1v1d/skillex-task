@@ -3,7 +3,7 @@ import {
   initialFilters,
   selectProductsFilters,
   useProductsFiltersStore,
-} from "../model/products.filters.store";
+} from "@/features/products/model/products.filters.store";
 
 describe("products.filters.store", () => {
   beforeEach(() => {

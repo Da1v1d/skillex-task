@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { binomialCoefficient, combinations } from "./combinatorics";
+import { binomialCoefficient, combinations } from "@/shared/lib/combinatorics";
 
 describe("combinatorics", () => {
   describe("binomialCoefficient", () => {

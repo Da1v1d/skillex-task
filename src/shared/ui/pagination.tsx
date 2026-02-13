@@ -6,7 +6,6 @@ type PaginationProps = {
   totalPages: number;
   onPageChange: (page: number) => void;
   className?: string;
-  /** Number of page number buttons to show on each side of current page */
   siblingCount?: number;
 };
 

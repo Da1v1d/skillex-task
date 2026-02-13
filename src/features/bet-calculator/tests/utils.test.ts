@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { calculateSystemBet } from "./utils";
+import { calculateSystemBet } from "@/features/bet-calculator/lib/utils";
 
 describe("utils", () => {
   describe("calculateSystemBet", () => {

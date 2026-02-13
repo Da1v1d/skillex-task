@@ -29,7 +29,7 @@ const useProductsQuery = (props: UseProductsQueryProps = {}) => {
     total: 0,
   };
 
-  // ! Can be optimized by using the useMemo hook
+  // ! Can be optimized by using the useMemo hook, but it's not necessary for list of 5 items
   const data = query.data?.data ?? [];
 
   return {

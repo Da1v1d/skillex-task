@@ -30,7 +30,7 @@ export const Card = ({
       {...rest}
     >
       {media && <div className="*:block *:w-full">{media}</div>}
-      <div className="gap-2 p-4">
+      <div className="gap-1 p-4">
         {title && <h2 className="font-medium text-zinc-100">{title}</h2>}
         {children}
       </div>

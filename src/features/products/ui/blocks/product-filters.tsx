@@ -42,10 +42,6 @@ const ProductFilters = () => {
     data.priceRange.min !== data.priceRange.max &&
     data.ratingRange.min !== data.ratingRange.max;
 
-  if (!hasData) {
-    return null;
-  }
-
   const categoryOptions = data.categories.map((c) => ({ value: c, label: c }));
   const brandOptions = data.brands.map((b) => ({ value: b, label: b }));
   const priceOptions = buildPriceOptions(
@@ -57,6 +53,13 @@ const ProductFilters = () => {
     data.ratingRange.max,
   );
 
+  if (!hasData) {
+    return null;
+  }
+
+  // TODO: Add range selector instead of two selects
+  // TODO: Make filters onChange reset page to 1 in store
+  // ? we can use filters with nuq library instead of store
   return (
     <div
       className="flex flex-wrap items-center gap-4"
@@ -76,7 +79,10 @@ const ProductFilters = () => {
             options={categoryOptions}
             value={filters.category}
             onValueChange={(value) =>
-              changeFilters({ category: value as ProductsRequest["category"] })
+              changeFilters({
+                category: value as ProductsRequest["category"],
+                page: 1,
+              })
             }
             placeholder="All categories"
             aria-label="Filter by category"
@@ -96,7 +102,10 @@ const ProductFilters = () => {
             options={brandOptions}
             value={filters.brand}
             onValueChange={(value) =>
-              changeFilters({ brand: value as ProductsRequest["brand"] })
+              changeFilters({
+                brand: value as ProductsRequest["brand"],
+                page: 1,
+              })
             }
             placeholder="All brands"
             aria-label="Filter by brand"
@@ -119,7 +128,10 @@ const ProductFilters = () => {
             options={priceOptions}
             value={filters.minPrice != null ? String(filters.minPrice) : ""}
             onValueChange={(value) =>
-              changeFilters({ minPrice: value ? Number(value) : undefined })
+              changeFilters({
+                minPrice: value ? Number(value) : undefined,
+                page: 1,
+              })
             }
             placeholder="Any"
             aria-label="Minimum price"
@@ -139,7 +151,10 @@ const ProductFilters = () => {
             options={priceOptions}
             value={filters.maxPrice != null ? String(filters.maxPrice) : ""}
             onValueChange={(value) =>
-              changeFilters({ maxPrice: value ? Number(value) : undefined })
+              changeFilters({
+                maxPrice: value ? Number(value) : undefined,
+                page: 1,
+              })
             }
             placeholder="Any"
             aria-label="Maximum price"
@@ -159,7 +174,10 @@ const ProductFilters = () => {
             options={ratingOptions}
             value={filters.minRating != null ? String(filters.minRating) : ""}
             onValueChange={(value) =>
-              changeFilters({ minRating: value ? Number(value) : undefined })
+              changeFilters({
+                minRating: value ? Number(value) : undefined,
+                page: 1,
+              })
             }
             placeholder="Any"
             aria-label="Minimum rating"

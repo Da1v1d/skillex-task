@@ -10,10 +10,10 @@ type ProductsFiltersActions = {
   resetFilters: () => void;
 };
 
-const defaultState: ProductsFiltersState = {
+const initialState: ProductsFiltersState = {
   filters: {
     page: 1,
-    limit: 10,
+    limit: 5,
     category: undefined,
     brand: undefined,
     minPrice: undefined,
@@ -25,11 +25,11 @@ const defaultState: ProductsFiltersState = {
 export const useProductsFiltersStore = create<
   ProductsFiltersState & ProductsFiltersActions
 >((set) => ({
-  ...defaultState,
+  ...initialState,
   changeFilters: (filters) =>
     set((state) => ({ filters: { ...state.filters, ...filters } })),
 
-  resetFilters: () => set(defaultState),
+  resetFilters: () => set(initialState),
 }));
 
 export const selectProductsFilters = (state: ProductsFiltersState) =>

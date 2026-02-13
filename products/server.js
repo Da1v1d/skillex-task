@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-const PORT = 3001;
+const PORT = 4301;
 
 app.use(cors());
 app.use(express.json());
@@ -15,7 +15,7 @@ const products = [
     brand: "Brand A",
     price: 99.99,
     rating: 4.5,
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl: "https://picsum.photos/400/300",
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const products = [
     brand: "Brand B",
     price: 49.99,
     rating: 4.0,
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl: "https://picsum.photos/400/300",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const products = [
     brand: "Brand C",
     price: 59.99,
     rating: 4.2,
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl: "https://picsum.photos/400/300",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const products = [
     brand: "Brand D",
     price: 499.99,
     rating: 4.8,
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl: "https://picsum.photos/400/300",
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const products = [
     brand: "Brand E",
     price: 199.99,
     rating: 4.7,
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl: "https://picsum.photos/400/300",
   },
   ...Array.from({ length: 25 }).map((_, i) => ({
     id: i + 6,
@@ -60,7 +60,7 @@ const products = [
     brand: ["Brand A", "Brand B", "Brand C", "Brand D"][i % 4],
     price: 30 + i * 5,
     rating: +(3.5 + (i % 3) * 0.5).toFixed(1),
-    imageUrl: "https://picsum.photos/300/200",
+    imageUrl: "https://picsum.photos/400/300",
   })),
 ];
 

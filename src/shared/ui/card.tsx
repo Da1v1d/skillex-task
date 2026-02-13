@@ -22,7 +22,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-sm",
+        "overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-sm flex flex-col justify-between",
         className,
       )}
       role={title ? "article" : undefined}
@@ -30,11 +30,11 @@ export const Card = ({
       {...rest}
     >
       {media && <div className="*:block *:w-full">{media}</div>}
-      <div className="space-y-2 p-4">
+      <div className="gap-2 p-4">
         {title && <h2 className="font-medium text-zinc-100">{title}</h2>}
         {children}
-        {footer && <div>{footer}</div>}
       </div>
+      {footer && <div className="p-4">{footer}</div>}
     </div>
   );
 };

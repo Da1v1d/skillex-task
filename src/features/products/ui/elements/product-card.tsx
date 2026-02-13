@@ -1,4 +1,5 @@
 import type { Product } from "@/features/products/lib/types";
+import { cn } from "@/shared/lib/utils";
 import { Card } from "@/shared/ui";
 
 interface Props extends Product {
@@ -8,7 +9,7 @@ interface Props extends Product {
 const ProductCard = ({ className, ...product }: Props) => {
   return (
     <Card
-      className={className}
+      className={cn("", className)}
       media={
         <img
           src={product.imageUrl}

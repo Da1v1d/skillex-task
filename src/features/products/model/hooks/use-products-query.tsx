@@ -16,12 +16,30 @@ type UseProductsQueryProps = QueryProps<
 const useProductsQuery = (props: UseProductsQueryProps = {}) => {
   const productsFilters = useProductsFiltersStore(selectProductsFilters);
 
-  return useQuery({
+  const query = useQuery({
     queryKey: [API_KEYS.PRODUCTS.ALL, JSON.stringify(productsFilters)],
     queryFn: () => ProductsApi.getAll({ ...productsFilters }),
-    select: (data) => data.data,
     ...props,
   });
+
+  const { totalPages, page, limit, total } = query.data?.pagination ?? {
+    totalPages: 0,
+    page: 0,
+    limit: 0,
+    total: 0,
+  };
+
+  // ! Can be optimized by using the useMemo hook
+  const data = query.data?.data ?? [];
+
+  return {
+    ...query,
+    totalPages,
+    page,
+    limit,
+    total,
+    data,
+  };
 };
 
 export default useProductsQuery;

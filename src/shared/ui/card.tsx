@@ -1,11 +1,12 @@
 import { cn } from "@/shared/lib/utils";
 import type { ComponentProps, ReactNode } from "react";
 
-type CardProps = ComponentProps<"div"> & {
+type CardProps = Omit<ComponentProps<"div">, "id"> & {
   children: ReactNode;
   title?: string;
   className?: string;
   footer?: ReactNode;
+  media?: ReactNode;
   "aria-label"?: string;
 };
 
@@ -15,21 +16,25 @@ export const Card = ({
   className = "",
   "aria-label": ariaLabel,
   footer,
+  media,
   ...rest
 }: CardProps) => {
   return (
     <div
       className={cn(
-        "rounded-lg border border-zinc-800 bg-zinc-900 p-4 shadow-sm",
+        "overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-sm",
         className,
       )}
       role={title ? "article" : undefined}
       aria-label={ariaLabel}
       {...rest}
     >
-      {title && <h2 className="font-medium text-zinc-100">{title}</h2>}
-      {children}
-      {footer && <div className="mt-4">{footer}</div>}
+      {media && <div className="*:block *:w-full">{media}</div>}
+      <div className="space-y-2 p-4">
+        {title && <h2 className="font-medium text-zinc-100">{title}</h2>}
+        {children}
+        {footer && <div>{footer}</div>}
+      </div>
     </div>
   );
 };

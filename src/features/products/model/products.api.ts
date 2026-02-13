@@ -3,11 +3,12 @@ import type {
   Product,
   ProductsRequest,
 } from "@/features/products/lib/types";
+import type { Response } from "@/shared/lib/types";
 import { apiService } from "@/shared/services";
 
 class ProductsApi {
   static getAll(params: ProductsRequest) {
-    return apiService.get<Product[]>("/products", { params });
+    return apiService.get<Response<Product[]>>("/products", { params });
   }
 
   static getFilters() {

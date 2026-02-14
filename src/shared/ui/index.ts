@@ -1,5 +1,6 @@
 export { Button } from "./button";
 export { Card } from "./card";
+export { default as Image } from "./image";
 export { Input } from "./input";
 export { Layout } from "./layout";
 export { Modal } from "./modal";

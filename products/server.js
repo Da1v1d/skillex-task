@@ -15,7 +15,7 @@ const products = [
     brand: "Brand A",
     price: 99.99,
     rating: 4.5,
-    imageUrl: "https://picsum.photos/400/300",
+    imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 500)}/600/400`,
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const products = [
     brand: "Brand B",
     price: 49.99,
     rating: 4.0,
-    imageUrl: "https://picsum.photos/400/300",
+    imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 500)}/600/400`,
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const products = [
     brand: "Brand C",
     price: 59.99,
     rating: 4.2,
-    imageUrl: "https://picsum.photos/400/300",
+    imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 500)}/600/400`,
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const products = [
     brand: "Brand D",
     price: 499.99,
     rating: 4.8,
-    imageUrl: "https://picsum.photos/400/300",
+    imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 500)}/600/400`,
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const products = [
     brand: "Brand E",
     price: 199.99,
     rating: 4.7,
-    imageUrl: "https://picsum.photos/400/300",
+    imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 500)}/600/400`,
   },
   ...Array.from({ length: 25 }).map((_, i) => ({
     id: i + 6,
@@ -60,7 +60,7 @@ const products = [
     brand: ["Brand A", "Brand B", "Brand C", "Brand D"][i % 4],
     price: 30 + i * 5,
     rating: +(3.5 + (i % 3) * 0.5).toFixed(1),
-    imageUrl: "https://picsum.photos/400/300",
+    imageUrl: `https://picsum.photos/id/${Math.floor(Math.random() * 500)}/600/400`,
   })),
 ];
 

@@ -3,6 +3,9 @@ import ProductFilters from "@/features/products/ui/blocks/product-filters";
 import ProductModalWrapper from "@/features/products/ui/blocks/product-modal-wrapper";
 import ProductsPagination from "@/features/products/ui/blocks/products-pagination";
 import ProductCard from "@/features/products/ui/elements/product-card";
+import { memo } from "react";
+
+const MemoizedProductCard = memo(ProductCard);
 
 const Products = () => {
   // ! I use this type of declaration if many queries exist
@@ -23,7 +26,11 @@ const Products = () => {
         {productsQuery.data?.map((product) => (
           <ProductModalWrapper key={product.id} {...product}>
             {(toggleOpen) => (
-              <ProductCard key={product.id} onClick={toggleOpen} {...product} />
+              <MemoizedProductCard
+                key={product.id}
+                onClick={toggleOpen}
+                {...product}
+              />
             )}
           </ProductModalWrapper>
         ))}

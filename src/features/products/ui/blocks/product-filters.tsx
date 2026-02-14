@@ -62,7 +62,7 @@ const ProductFilters = () => {
   // ? we can use filters with nuq library instead of store
   return (
     <div
-      className="flex flex-wrap items-center gap-4"
+      className="flex flex-wrap items-center gap-6"
       role="group"
       aria-label="Product filters"
     >

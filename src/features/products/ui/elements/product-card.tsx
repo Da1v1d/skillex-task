@@ -1,7 +1,8 @@
 import type { Product } from "@/features/products/lib/types";
 import { cn } from "@/shared/lib/utils";
-import { Card } from "@/shared/ui";
+import { Card, Image } from "@/shared/ui";
 import { StarIcon } from "lucide-react";
+import { useState } from "react";
 
 interface Props extends Product {
   className?: string;
@@ -17,7 +18,7 @@ const ProductCard = ({ className, onClick, ...product }: Props) => {
       )}
       onClick={onClick}
       media={
-        <img
+        <Image
           src={product.imageUrl}
           alt={product.name}
           className="h-64 w-full object-cover"

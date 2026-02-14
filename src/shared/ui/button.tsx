@@ -31,7 +31,7 @@ export const Button = ({
       type={type}
       disabled={disabled}
       className={cn(
-        "rounded-lg px-4 py-2 hover:cursor-pointer text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:pointer-events-none disabled:opacity-50",
+        "rounded-full px-4 py-2 hover:cursor-pointer text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:pointer-events-none disabled:opacity-50",
         variantStyles[variant],
         className,
       )}

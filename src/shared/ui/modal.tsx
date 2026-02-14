@@ -26,6 +26,8 @@ export const Modal = ({
   ...rest
 }: ModalProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
   useImperativeHandle(ref, () => dialogRef?.current as HTMLDialogElement);
 
   const debouncedOpen = useDebouncedValue(rest.open, DIALOG_ANIMATION_MS);
@@ -33,6 +35,14 @@ export const Modal = ({
   const closeHandler = (e: SyntheticEvent<HTMLDialogElement, Event>) => {
     dialogRef.current?.close();
     onClose?.(e);
+  };
+
+  const onOutsideClick = (
+    e: React.MouseEvent<HTMLDialogElement, MouseEvent>,
+  ) => {
+    if (contentRef.current && !contentRef.current.contains(e.target as Node)) {
+      closeHandler(e as unknown as SyntheticEvent<HTMLDialogElement, Event>);
+    }
   };
 
   useEffect(() => {
@@ -57,8 +67,9 @@ export const Modal = ({
   return (
     <dialog
       onClose={closeHandler}
+      onClick={onOutsideClick}
       className={cn(
-        "dialog-animate fixed inset-0 m-0 p-0 z-1000 max-w-none max-h-none w-screen h-screen bg-black/20 backdrop-blur-xs",
+        "dialog-animate fixed inset-0 m-0 p-0 z-1000 max-w-none max-h-none w-screen h-screen bg-black/30 backdrop-blur-sm",
         (rest.open || debouncedOpen) && "flex items-center justify-center",
         className,
       )}
@@ -66,7 +77,10 @@ export const Modal = ({
       ref={dialogRef}
       {...rest}
     >
-      <div className="rounded-2xl relative space-y-4 border min-h-12 min-w-96 border-white/10 bg-zinc-900/95 p-6 shadow-xl ">
+      <div
+        ref={contentRef}
+        className="rounded-2xl relative space-y-4 border min-h-12 min-w-96 border-white/10 bg-zinc-900/95 p-6 shadow-xl "
+      >
         <div className="absolute top-3 right-3">
           <Button
             variant="ghost"

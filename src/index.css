@@ -19,4 +19,54 @@
   body {
     @apply bg-zinc-950 text-zinc-100;
   }
+  p,
+  h2 {
+    @apply text-zinc-100;
+  }
+}
+
+@layer components {
+  @media (prefers-reduced-motion: no-preference) {
+    dialog.dialog-animate {
+      --dialog-duration: 0.25s;
+
+      transition:
+        translate var(--dialog-duration) ease-out,
+        scale var(--dialog-duration) ease-out,
+        opacity var(--dialog-duration) ease-out,
+        display var(--dialog-duration) ease-out allow-discrete;
+
+      &[open] {
+        translate: 0 0;
+        scale: 1;
+        opacity: 1;
+
+        @starting-style {
+          translate: 0 1rem;
+          scale: 0.96;
+          opacity: 0;
+        }
+      }
+
+      &:not([open]) {
+        translate: 0 1rem;
+        scale: 0.96;
+        opacity: 0;
+      }
+    }
+
+    dialog.dialog-animate::backdrop {
+      transition:
+        opacity var(--dialog-duration) ease-out,
+        display var(--dialog-duration) ease-out allow-discrete;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+
+    dialog.dialog-animate:not([open])::backdrop {
+      opacity: 0;
+    }
+  }
 }

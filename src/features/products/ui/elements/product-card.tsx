@@ -5,15 +5,17 @@ import { StarIcon } from "lucide-react";
 
 interface Props extends Product {
   className?: string;
+  onClick?: () => void;
 }
 
-const ProductCard = ({ className, ...product }: Props) => {
+const ProductCard = ({ className, onClick, ...product }: Props) => {
   return (
     <Card
       className={cn(
         "transition-transform relative duration-200 hover:scale-[1.01] hover:shadow-lg hover:cursor-pointer",
         className,
       )}
+      onClick={onClick}
       media={
         <img
           src={product.imageUrl}

@@ -13,6 +13,7 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   onValueChange: (value: string | undefined) => void;
   placeholder?: string;
   "aria-label"?: string;
+  wrapperClassName?: string;
 };
 
 export const Select = ({
@@ -23,6 +24,7 @@ export const Select = ({
   className,
   "aria-label": ariaLabel,
   disabled,
+  wrapperClassName,
   ...rest
 }: SelectProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -31,7 +33,12 @@ export const Select = ({
   };
 
   return (
-    <div className="relative inline-block w-full min-w-[120px]">
+    <div
+      className={cn(
+        "relative inline-block w-full min-w-[120px]",
+        wrapperClassName,
+      )}
+    >
       <select
         value={value ?? ""}
         onChange={handleChange}

@@ -22,7 +22,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-sm flex flex-col justify-between",
+        "overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-lg shadow-black/20 backdrop-blur-xl flex flex-col justify-between",
         className,
       )}
       role={title ? "article" : undefined}
@@ -34,7 +34,7 @@ export const Card = ({
         {title && <h2 className="font-medium text-zinc-100">{title}</h2>}
         {children}
       </div>
-      {footer && <div className="p-4">{footer}</div>}
+      {footer && <div className="p-4 pt-0">{footer}</div>}
     </div>
   );
 };

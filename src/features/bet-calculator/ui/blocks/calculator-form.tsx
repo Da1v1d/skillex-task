@@ -50,6 +50,7 @@ export const CalculatorForm = ({
             onValueChange={onSystemChange}
             placeholder="Select system…"
             aria-label="System bet type"
+            wrapperClassName="max-w-[120px]"
           />
           {selectedOption && (
             <p className="mt-1.5 text-xs text-zinc-500">

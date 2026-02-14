@@ -16,7 +16,7 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   wrapperClassName?: string;
 };
 
-export const Select = ({
+const Select = ({
   options,
   value,
   onValueChange,
@@ -64,3 +64,5 @@ export const Select = ({
     </div>
   );
 };
+
+export default Select;

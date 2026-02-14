@@ -10,7 +10,7 @@ type CardProps = Omit<ComponentProps<"div">, "id"> & {
   "aria-label"?: string;
 };
 
-export const Card = ({
+const Card = ({
   children,
   title,
   className = "",
@@ -38,3 +38,5 @@ export const Card = ({
     </div>
   );
 };
+
+export default Card;

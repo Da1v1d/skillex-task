@@ -18,7 +18,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-transparent text-zinc-300 hover:bg-zinc-800 hover:text-white focus-visible:ring-zinc-500",
 };
 
-export const Button = ({
+const Button = ({
   children,
   variant = "primary",
   className = "",
@@ -43,3 +43,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default Button;

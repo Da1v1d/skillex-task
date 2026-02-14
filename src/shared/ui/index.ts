@@ -1,10 +1,9 @@
-export { Button } from "./button";
-export { Card } from "./card";
+export { default as Button } from "./button";
+export { default as Card } from "./card";
 export { default as Image } from "./image";
-export { Input } from "./input";
-export { Layout } from "./layout";
-export { Modal } from "./modal";
-export { Navbar } from "./navbar";
-export { Pagination } from "./pagination";
-export { Select } from "./select";
-export type { SelectOption } from "./select";
+export { default as Input } from "./input";
+export { default as Layout } from "./layout";
+export { default as Modal } from "./modal";
+export { default as Navbar } from "./navbar";
+export { default as Pagination } from "./pagination";
+export { default as Select, type SelectOption } from "./select";

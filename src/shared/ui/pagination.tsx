@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib/utils";
-import { Button } from "./button";
+import Button from "./button";
 
 type PaginationProps = {
   page: number;
@@ -14,7 +14,7 @@ const range = (start: number, end: number): number[] => {
   return Array.from({ length }, (_, i) => start + i);
 };
 
-export const Pagination = ({
+const Pagination = ({
   page,
   totalPages,
   onPageChange,
@@ -76,3 +76,5 @@ export const Pagination = ({
     </nav>
   );
 };
+
+export default Pagination;

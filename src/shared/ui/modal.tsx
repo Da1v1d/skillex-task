@@ -1,6 +1,6 @@
 import { useDebouncedValue } from "@/shared/hooks";
 import { cn } from "@/shared/lib/utils";
-import { Button } from "@/shared/ui/button";
+import { Button } from "@/shared/ui";
 import { XIcon } from "lucide-react";
 import {
   useEffect,
@@ -17,7 +17,7 @@ type ModalProps = ComponentProps<"dialog"> & {
   className?: string;
 };
 
-export const Modal = ({
+const Modal = ({
   children,
   title,
   className = "",
@@ -108,3 +108,5 @@ export const Modal = ({
     </dialog>
   );
 };
+
+export default Modal;

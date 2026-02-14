@@ -6,7 +6,7 @@ type NavbarProps = ComponentProps<"nav"> & {
   ariaLabel?: string;
 };
 
-export const Navbar = ({
+const Navbar = ({
   children,
   className = "",
   ariaLabel = "Main navigation",
@@ -20,3 +20,5 @@ export const Navbar = ({
     </nav>
   );
 };
+
+export default Navbar;

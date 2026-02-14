@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib/utils";
-import { Navbar } from "@/shared/ui/navbar";
+import { Navbar } from "@/shared/ui";
 import { Outlet, Link, useLocation } from "react-router-dom";
 
 // ! In many cases layout will not be placed in shared folder, cause it can have business logic in it.
@@ -9,7 +9,7 @@ const links = [
   { to: "/bet-calculation", label: "Bet Calculation" },
 ];
 
-export const Layout = () => {
+const Layout = () => {
   const location = useLocation();
   return (
     <div className="min-h-screen bg-zinc-950">
@@ -38,3 +38,5 @@ export const Layout = () => {
     </div>
   );
 };
+
+export default Layout;

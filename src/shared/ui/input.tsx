@@ -8,7 +8,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 const baseStyles =
   "w-full rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50";
 
-export const Input = ({
+const Input = ({
   className = "",
   ref,
   ...rest
@@ -22,3 +22,5 @@ export const Input = ({
     />
   );
 };
+
+export default Input;

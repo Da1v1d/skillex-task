@@ -23,7 +23,7 @@ const ProductModalWrapper = ({
       {children(toggleOpen)}
       <Modal
         className="[&>div]:max-w-[600px]"
-        title="Product Details"
+        title={name}
         open={isOpen}
         onClose={() => toggleOpen(false)}
       >
@@ -36,20 +36,18 @@ const ProductModalWrapper = ({
           <p className="bg-primary-700 absolute top-20 right-10 text-primary-100 px-3 py-1 rounded-full text-sm">
             {category}
           </p>
-          <div className="space-y-1">
-            <h2>{name}</h2>
-            <div className="flex items-center gap-1">
-              <StarIcon className="size-4 text-sm text-yellow-500 fill-yellow-500" />
-              <p className="text-sm">{rating}</p>
-            </div>
-          </div>
+
           <p className="text-zinc-400">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Exercitationem provident non possimus dolore voluptas veritatis
             assumenda reprehenderit, nulla ipsum eligendi nemo fuga asperiores?
             Quae perferendis nostrum eius alias vero eaque!
           </p>
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1">
+              <StarIcon className="size-4 text-sm text-yellow-500 fill-yellow-500" />
+              <p className="text-sm">{rating}</p>
+            </div>
             <Button variant="primary">Buy Now for ${price.toFixed(2)}</Button>
           </div>
         </>

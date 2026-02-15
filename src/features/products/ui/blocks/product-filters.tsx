@@ -62,7 +62,7 @@ const ProductFilters = () => {
   // ? we can use filters with nuq library instead of store
   return (
     <div
-      className="flex flex-wrap items-center gap-6"
+      className="flex flex-wrap items-center gap-4"
       role="group"
       aria-label="Product filters"
     >
@@ -75,13 +75,11 @@ const ProductFilters = () => {
             Category
           </label>
           <Select
-            id="filter-category"
             options={categoryOptions}
             value={filters.category}
             onValueChange={(value) =>
               changeFilters({
                 category: value as ProductsRequest["category"],
-                page: 1,
               })
             }
             placeholder="All categories"
@@ -98,13 +96,11 @@ const ProductFilters = () => {
             Brand
           </label>
           <Select
-            id="filter-brand"
             options={brandOptions}
             value={filters.brand}
             onValueChange={(value) =>
               changeFilters({
                 brand: value as ProductsRequest["brand"],
-                page: 1,
               })
             }
             placeholder="All brands"
@@ -124,13 +120,11 @@ const ProductFilters = () => {
             Min price
           </label>
           <Select
-            id="filter-min-price"
             options={priceOptions}
             value={filters.minPrice != null ? String(filters.minPrice) : ""}
             onValueChange={(value) =>
               changeFilters({
                 minPrice: value ? Number(value) : undefined,
-                page: 1,
               })
             }
             placeholder="Any"
@@ -147,13 +141,11 @@ const ProductFilters = () => {
             Max price
           </label>
           <Select
-            id="filter-max-price"
             options={priceOptions}
             value={filters.maxPrice != null ? String(filters.maxPrice) : ""}
             onValueChange={(value) =>
               changeFilters({
                 maxPrice: value ? Number(value) : undefined,
-                page: 1,
               })
             }
             placeholder="Any"
@@ -170,13 +162,11 @@ const ProductFilters = () => {
             Min rating
           </label>
           <Select
-            id="filter-min-rating"
             options={ratingOptions}
             value={filters.minRating != null ? String(filters.minRating) : ""}
             onValueChange={(value) =>
               changeFilters({
                 minRating: value ? Number(value) : undefined,
-                page: 1,
               })
             }
             placeholder="Any"

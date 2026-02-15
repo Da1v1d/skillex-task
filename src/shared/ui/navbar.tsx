@@ -13,7 +13,7 @@ const Navbar = ({
 }: NavbarProps) => {
   return (
     <nav
-      className={`border-b border-zinc-800 bg-zinc-900 p-4 ${className}`.trim()}
+      className={`border-b border-zinc-800 bg-zinc-900/80 backdrop-blur-xl sticky z-100 top-0 left-0 right-0 p-5 ${className}`.trim()}
       aria-label={ariaLabel}
     >
       <ul className="flex gap-4">{children}</ul>

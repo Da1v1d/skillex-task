@@ -21,8 +21,8 @@ const Layout = () => {
               <Link
                 to={to}
                 className={cn(
-                  "text-zinc-300 hover:text-white",
-                  isActive && "text-primary",
+                  "text-zinc-300 hover:text-white transition-all duration-200",
+                  isActive && "text-primary font-bold",
                 )}
                 tabIndex={0}
               >

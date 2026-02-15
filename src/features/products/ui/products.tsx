@@ -11,7 +11,6 @@ const Products = () => {
   // ! I use this type of declaration if many queries exist
   const productsQuery = useProductsQuery();
 
-  if (productsQuery.isLoading) return <p>Loading...</p>;
   if (productsQuery.isError)
     return (
       <p className="text-red-400" role="alert">
@@ -22,20 +21,34 @@ const Products = () => {
   return (
     <div className="space-y-8">
       <ProductFilters />
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {productsQuery.data?.map((product) => (
-          <ProductModalWrapper key={product.id} {...product}>
-            {(toggleOpen) => (
-              <MemoizedProductCard
-                key={product.id}
-                onClick={toggleOpen}
-                {...product}
-              />
-            )}
-          </ProductModalWrapper>
-        ))}
-      </div>
-      <ProductsPagination />
+      {!productsQuery.isLoading && productsQuery.data?.length === 0 && (
+        <div className="flex justify-center items-center">
+          <p className="text-2xl">No products found</p>
+        </div>
+      )}
+      {productsQuery.isLoading && (
+        <div className="flex justify-center items-center h-full">
+          <p>Loading...</p>
+        </div>
+      )}
+      {productsQuery.data?.length > 0 && (
+        <>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {productsQuery.data?.map((product) => (
+              <ProductModalWrapper key={product.id} {...product}>
+                {(toggleOpen) => (
+                  <MemoizedProductCard
+                    key={product.id}
+                    onClick={toggleOpen}
+                    {...product}
+                  />
+                )}
+              </ProductModalWrapper>
+            ))}
+          </div>
+          <ProductsPagination />
+        </>
+      )}
     </div>
   );
 };

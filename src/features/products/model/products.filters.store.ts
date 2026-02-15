@@ -27,7 +27,7 @@ export const useProductsFiltersStore = create<
 >((set) => ({
   ...initialFilters,
   changeFilters: (filters) =>
-    set((state) => ({ filters: { ...state.filters, ...filters } })),
+    set((state) => ({ filters: { ...state.filters, page: 1, ...filters } })),
 
   resetFilters: () => set(initialFilters),
 }));

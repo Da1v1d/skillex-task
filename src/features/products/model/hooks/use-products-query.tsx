@@ -31,6 +31,7 @@ const useProductsQuery = (props: UseProductsQueryProps = {}) => {
 
   // ! Can be optimized by using the useMemo hook, but it's not necessary for list of 5 items
   const data = query.data?.data ?? [];
+  const hasData = !!data?.length;
 
   return {
     ...query,
@@ -39,6 +40,7 @@ const useProductsQuery = (props: UseProductsQueryProps = {}) => {
     limit,
     total,
     data,
+    hasData,
   };
 };
 

@@ -4,6 +4,7 @@ import ProductModalWrapper from "@/features/products/ui/blocks/product-modal-wra
 import ProductsPagination from "@/features/products/ui/blocks/products-pagination";
 import ProductCard from "@/features/products/ui/elements/product-card";
 import { memo } from "react";
+import ProductsNotFound from "@/features/products/ui/blocks/products-not-found";
 
 const MemoizedProductCard = memo(ProductCard);
 
@@ -21,16 +22,8 @@ const Products = () => {
   return (
     <div className="space-y-6">
       <ProductFilters />
-      {!productsQuery.isLoading && productsQuery.data?.length === 0 && (
-        <div
-          className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/40 px-6 py-16 text-center"
-          role="status"
-        >
-          <p className="text-lg font-medium text-zinc-300">No products found</p>
-          <p className="mt-1 text-sm text-zinc-500">
-            Try adjusting filters or reset to see all products.
-          </p>
-        </div>
+      {!productsQuery.isLoading && !productsQuery.hasData && (
+        <ProductsNotFound />
       )}
       {productsQuery.isLoading && (
         <div
@@ -42,7 +35,7 @@ const Products = () => {
           <p className="mt-4 text-sm text-zinc-400">Loading products…</p>
         </div>
       )}
-      {productsQuery.data?.length > 0 && (
+      {productsQuery.hasData && (
         <>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {productsQuery.data?.map((product) => (

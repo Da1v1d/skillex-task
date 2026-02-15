@@ -19,21 +19,32 @@ const Products = () => {
     );
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <ProductFilters />
       {!productsQuery.isLoading && productsQuery.data?.length === 0 && (
-        <div className="flex justify-center items-center">
-          <p className="text-2xl">No products found</p>
+        <div
+          className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/40 px-6 py-16 text-center"
+          role="status"
+        >
+          <p className="text-lg font-medium text-zinc-300">No products found</p>
+          <p className="mt-1 text-sm text-zinc-500">
+            Try adjusting filters or reset to see all products.
+          </p>
         </div>
       )}
       {productsQuery.isLoading && (
-        <div className="flex justify-center items-center h-full">
-          <p>Loading...</p>
+        <div
+          className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-zinc-900/40 px-6 py-24"
+          role="status"
+          aria-live="polite"
+        >
+          <div className="size-10 animate-spin rounded-full border-2 border-primary-500/30 border-t-primary-500" />
+          <p className="mt-4 text-sm text-zinc-400">Loading products…</p>
         </div>
       )}
       {productsQuery.data?.length > 0 && (
         <>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {productsQuery.data?.map((product) => (
               <ProductModalWrapper key={product.id} {...product}>
                 {(toggleOpen) => (
@@ -46,7 +57,9 @@ const Products = () => {
               </ProductModalWrapper>
             ))}
           </div>
-          <ProductsPagination />
+          <div className="flex justify-center border-t border-zinc-800/80 pt-6">
+            <ProductsPagination />
+          </div>
         </>
       )}
     </div>

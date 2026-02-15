@@ -1,7 +1,7 @@
 import { cn } from "@/shared/lib/utils";
 import type { ReactNode, ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "gradient";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
@@ -16,6 +16,8 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-zinc-700 text-zinc-100 hover:bg-zinc-600 focus-visible:ring-zinc-500",
   ghost:
     "bg-transparent text-zinc-300 hover:bg-zinc-800 hover:text-white focus-visible:ring-zinc-500",
+  gradient:
+    "bg-linear-to-r from-primary-600 to-primary-500 text-white shadow-lg shadow-primary-500/25 transition-all duration-200 hover:-translate-y-0.5 hover:from-primary-500 hover:to-primary-400 hover:shadow-primary-500/30 focus-visible:ring-primary-400 active:translate-y-0",
 };
 
 const Button = ({

@@ -74,7 +74,7 @@ export const SystemBetCalculator = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,380px)_1fr] lg:items-start">
       <CalculatorForm
         systemValue={systemValue}
         onSystemChange={handleSystemChange}

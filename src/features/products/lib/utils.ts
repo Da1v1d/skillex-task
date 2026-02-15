@@ -23,3 +23,13 @@ export const buildRatingOptions = (
   }
   return options;
 };
+
+const categoryPillColors: Record<string, string> = {
+  Electronics: "bg-blue-500/90 text-white",
+  Footwear: "bg-violet-500/90 text-white",
+  Clothing: "bg-amber-600/90 text-white",
+  Default: "bg-primary-600/90 text-white",
+};
+
+export const getCategoryPillClass = (category: string) =>
+  categoryPillColors[category] ?? categoryPillColors.Default;

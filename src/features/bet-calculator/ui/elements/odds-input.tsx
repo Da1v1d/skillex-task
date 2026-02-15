@@ -29,10 +29,15 @@ export const OddsInput = ({
 
   return (
     <div className={cn("space-y-2", className)} aria-label={ariaLabel}>
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex flex-wrap items-end gap-3">
         {displayOdds.map((odd, index) => (
-          <label key={index} className="flex flex-col gap-1">
-            <span className="text-xs text-zinc-400">Event {index + 1}</span>
+          <label
+            key={index}
+            className="flex flex-col gap-1.5 rounded-lg border border-zinc-700/80 bg-zinc-800/50 px-3 py-2 transition-colors focus-within:border-primary-500/50 focus-within:ring-1 focus-within:ring-primary-500/30"
+          >
+            <span className="text-xs font-medium text-zinc-400">
+              Event {index + 1}
+            </span>
             <Input
               type="number"
               inputMode="decimal"
@@ -41,7 +46,7 @@ export const OddsInput = ({
               step={0.01}
               value={odd}
               onChange={(e) => handleOddsChange(index, e.target.value)}
-              className="w-20"
+              className="w-20 border-0 bg-transparent p-0 focus:ring-0"
               placeholder="1.50"
               aria-label={`Odd for event ${index + 1}`}
             />

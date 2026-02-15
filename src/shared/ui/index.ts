@@ -5,5 +5,7 @@ export { default as Input } from "./input";
 export { default as Layout } from "./layout";
 export { default as Modal } from "./modal";
 export { default as Navbar } from "./navbar";
+export { default as NavLink } from "./nav-link";
+export { default as PageHeader } from "./page-header";
 export { default as Pagination } from "./pagination";
 export { default as Select, type SelectOption } from "./select";

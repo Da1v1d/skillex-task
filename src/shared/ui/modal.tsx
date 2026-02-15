@@ -95,7 +95,7 @@ const Modal = ({
           </Button>
         </div>
         {title && (
-          <h2 id="modal-title" className="text-lg font-semibold text-zinc-100">
+          <h2 id="modal-title" className="text-xl font-semibold text-zinc-100">
             {title}
           </h2>
         )}

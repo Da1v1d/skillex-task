@@ -1,5 +1,7 @@
 import type { Product } from "@/features/products/lib/types";
+import { getCategoryPillClass } from "@/features/products/lib/utils";
 import { useToggle } from "@/shared/hooks";
+import { cn } from "@/shared/lib/utils";
 import { Button, Image, Modal } from "@/shared/ui";
 import { StarIcon } from "lucide-react";
 import type { ReactNode } from "react";
@@ -33,7 +35,12 @@ const ProductModalWrapper = ({
             alt={name}
             className="w-full h-80 object-cover"
           />
-          <p className="bg-primary-700 absolute top-20 right-10 text-primary-100 px-3 py-1 rounded-full text-sm">
+          <p
+            className={cn(
+              "absolute top-20 right-10 px-3 py-1 rounded-full text-sm",
+              getCategoryPillClass(category),
+            )}
+          >
             {category}
           </p>
 

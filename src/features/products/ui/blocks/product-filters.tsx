@@ -71,7 +71,7 @@ const ProductFilters = () => {
       role="group"
       aria-label="Product filters"
     >
-      <div className="flex flex-wrap items-end gap-4 p-4">
+      <div className="flex sm:flex-row flex-col flex-wrap items-end sm:gap-4 gap-2 p-4">
         <div className="flex w-full items-center gap-2 sm:w-auto">
           <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary-500/15 text-primary-400">
             <Filter className="size-4" aria-hidden />
@@ -79,7 +79,7 @@ const ProductFilters = () => {
           <span className="text-sm font-semibold text-zinc-200">Filters</span>
         </div>
         {data.categories.length > 0 && (
-          <div className="flex flex-col gap-1">
+          <div className="flex sm:w-[unset] w-full flex-col gap-1">
             <label className="text-xs font-medium text-zinc-400">
               Category
             </label>
@@ -98,7 +98,7 @@ const ProductFilters = () => {
           </div>
         )}
         {data.brands.length > 0 && (
-          <div className="flex flex-col gap-1">
+          <div className="flex sm:w-[unset] w-full flex-col gap-1">
             <label className="text-xs font-medium text-zinc-400">Brand</label>
             <Select
               options={brandOptions}
@@ -115,7 +115,7 @@ const ProductFilters = () => {
           </div>
         )}
         {!!data.priceRange.min && (
-          <div className="flex flex-col gap-1">
+          <div className="flex sm:w-[unset] w-full flex-col gap-1">
             <label className="text-xs font-medium text-zinc-400">
               Min price
             </label>
@@ -134,7 +134,7 @@ const ProductFilters = () => {
           </div>
         )}
         {!!data.priceRange.max && (
-          <div className="flex flex-col gap-1">
+          <div className="flex sm:w-[unset] w-full flex-col gap-1">
             <label className="text-xs font-medium text-zinc-400">
               Max price
             </label>
@@ -153,7 +153,7 @@ const ProductFilters = () => {
           </div>
         )}
         {!!data.ratingRange.min && (
-          <div className="flex flex-col gap-1">
+          <div className="flex sm:w-[unset] w-full  flex-col gap-1">
             <label className="text-xs font-medium text-zinc-400">
               Min rating
             </label>
@@ -173,7 +173,7 @@ const ProductFilters = () => {
         )}
         <Button
           variant="ghost"
-          className="ml-auto flex items-center gap-2 border border-zinc-600 text-zinc-400 hover:border-primary-500/50 hover:text-primary-400 hover:bg-primary-500/10"
+          className="ml-auto sm:mt-0 mt-2 flex items-center gap-2 border border-zinc-600 text-zinc-400 hover:border-primary-500/50 hover:text-primary-400 hover:bg-primary-500/10"
           disabled={isDefaultFilters}
           onClick={resetFilters}
           aria-label="Reset all filters"

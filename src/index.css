@@ -55,6 +55,23 @@
 
 @layer components {
   @media (prefers-reduced-motion: no-preference) {
+    .card-animate {
+      animation: card-appear 0.35s ease-out forwards;
+    }
+
+    @keyframes card-appear {
+      from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+        scale: 0.98;
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        scale: 1;
+      }
+    }
+
     dialog.dialog-animate {
       --dialog-duration: 0.25s;
 

@@ -13,7 +13,7 @@ const ProductCard = ({ className, onClick, ...product }: Props) => {
   return (
     <Card
       className={cn(
-        "transition-transform relative duration-200 hover:scale-[1.01] hover:shadow-lg hover:cursor-pointer",
+        "card-animate transition-transform relative duration-200 hover:scale-[1.01] hover:shadow-lg hover:cursor-pointer",
         className,
       )}
       onClick={onClick}

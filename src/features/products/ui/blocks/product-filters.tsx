@@ -78,6 +78,9 @@ const ProductFilters = () => {
           </span>
           <span className="text-sm font-semibold text-zinc-200">Filters</span>
         </div>
+        {
+          // TODO: Create a custom select component in shared/ui
+        }
         {data.categories.length > 0 && (
           <div className="flex sm:w-[unset] w-full flex-col gap-1">
             <label className="text-xs font-medium text-zinc-400">

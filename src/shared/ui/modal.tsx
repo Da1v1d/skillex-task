@@ -64,6 +64,9 @@ const Modal = ({
     }
   }, [rest.open]);
 
+  // TODO: This component is not fully accessible, need to improve it.
+  // I don't use shadcn, that's why I keep custom components simple,
+  // I prefer to use Custom components like modal to be like compound components, with props and children.
   return (
     <dialog
       onClose={closeHandler}
@@ -79,31 +82,33 @@ const Modal = ({
     >
       <div
         ref={contentRef}
-        className="rounded-2xl relative space-y-4 border min-h-12 min-w-96 border-white/10 bg-zinc-900/95 p-6 shadow-xl "
+        className="relative flex max-h-[90vh] min-w-96 max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/95 shadow-xl shadow-black/30"
       >
-        <div className="absolute top-3 right-3">
+        <div className="flex shrink-0 items-start justify-between gap-4 border-b border-white/10 px-6 py-4">
+          {title && (
+            <h2
+              id="modal-title"
+              className="pr-8 text-xl font-semibold leading-tight text-zinc-100"
+            >
+              {title}
+            </h2>
+          )}
           <Button
             variant="ghost"
-            className="rounded-full p-2"
+            className="absolute right-3 top-3 rounded-full p-2 text-zinc-400 hover:bg-white/10 hover:text-zinc-100"
             onClick={(e) =>
               closeHandler(
                 e as unknown as SyntheticEvent<HTMLDialogElement, Event>,
               )
             }
+            aria-label="Close"
           >
-            <XIcon className="size-4" />
+            <XIcon className="size-4" aria-hidden />
           </Button>
         </div>
-        {title && (
-          <h2 id="modal-title" className="text-xl font-semibold text-zinc-100">
-            {title}
-          </h2>
-        )}
-        {
-          // !Here better to have content and footer parts as compound components
-          // !But in our codebase case not necessary
-        }
-        {children}
+        <div className="flex flex-1 flex-col overflow-y-auto p-6 pt-4">
+          {children}
+        </div>
       </div>
     </dialog>
   );

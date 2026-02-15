@@ -14,7 +14,7 @@ const ProductsPage = () => {
             <h1 className="text-2xl font-bold tracking-tight text-zinc-100 md:text-3xl">
               Products
             </h1>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-400 md:text-base">
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
               Browse and filter by category, brand, price, and rating. Open a
               product to view full details.
             </p>

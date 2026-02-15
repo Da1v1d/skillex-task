@@ -18,12 +18,17 @@ const Layout = () => {
       <Navbar
         ariaLabel="Main navigation"
         brand={
-          <>
+          <a
+            href="https://skillex.am/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2"
+          >
             <SkillexIcon className="size-10" />
             <h1 className="text-xl font-semibold tracking-tight text-zinc-200">
               Skillex Task
             </h1>
-          </>
+          </a>
         }
       >
         {links.map(({ to, label, icon }) => (

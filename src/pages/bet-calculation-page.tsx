@@ -14,7 +14,7 @@ const BetCalculationPage = () => {
             <h1 className="text-2xl font-bold tracking-tight text-zinc-100 md:text-3xl">
               System Bet Calculator
             </h1>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-400 md:text-base">
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
               Compute potential winnings for system bets (e.g. 2/3, 3/4). Enter
               odds for each event, select the system type, and your total stake.
             </p>

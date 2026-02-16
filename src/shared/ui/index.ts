@@ -1,5 +1,6 @@
 export { default as Button } from "./button";
 export { default as Card } from "./card";
+export { default as Drawer } from "./drawer";
 export { default as Image } from "./image";
 export { default as Input } from "./input";
 export { default as Layout } from "./layout";

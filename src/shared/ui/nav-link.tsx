@@ -8,6 +8,7 @@ type NavLinkProps = {
   icon: LucideIcon;
   isActive: boolean;
   className?: string;
+  onClick?: () => void;
 };
 
 const NavLink = ({
@@ -16,10 +17,12 @@ const NavLink = ({
   icon: Icon,
   isActive,
   className,
+  onClick,
 }: NavLinkProps) => {
   return (
     <Link
       to={to}
+      onClick={onClick}
       className={cn(
         "navbar-link flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200",
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900",

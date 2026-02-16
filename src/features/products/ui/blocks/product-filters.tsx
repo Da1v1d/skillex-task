@@ -47,12 +47,17 @@ const ProductFilters = () => {
     data.priceRange.min !== data.priceRange.max &&
     data.ratingRange.min !== data.ratingRange.max;
 
+  // TODO: Can be memoized
   const categoryOptions = data.categories.map((c) => ({ value: c, label: c }));
   const brandOptions = data.brands.map((b) => ({ value: b, label: b }));
+
+  // TODO: Can be memoized
   const priceOptions = buildPriceOptions(
     data.priceRange.min,
     data.priceRange.max,
   );
+
+  // TODO: Can be memoized
   const ratingOptions = buildRatingOptions(
     data.ratingRange.min,
     data.ratingRange.max,

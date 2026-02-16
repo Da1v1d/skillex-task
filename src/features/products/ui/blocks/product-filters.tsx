@@ -8,6 +8,7 @@ import {
   useProductsFiltersStore,
 } from "@/features/products/model/products.filters.store";
 import useFiltersQuery from "@/features/products/model/hooks/use-filters-query";
+import { isEqual } from "@/shared/lib/utils";
 import { Button, Select } from "@/shared/ui";
 import {
   buildPriceOptions,
@@ -47,24 +48,23 @@ const ProductFilters = () => {
     data.priceRange.min !== data.priceRange.max &&
     data.ratingRange.min !== data.ratingRange.max;
 
-  // TODO: Can be memoized
+  //! Can be memoized but in our case it's not performance heavy calculations here, so no need
   const categoryOptions = data.categories.map((c) => ({ value: c, label: c }));
   const brandOptions = data.brands.map((b) => ({ value: b, label: b }));
 
-  // TODO: Can be memoized
+  //! Can be memoized but in our case it's not performance heavy calculations here, so no need
   const priceOptions = buildPriceOptions(
     data.priceRange.min,
     data.priceRange.max,
   );
 
-  // TODO: Can be memoized
+  //! Can be memoized but in our case it's not performance heavy calculations here, so no need
   const ratingOptions = buildRatingOptions(
     data.ratingRange.min,
     data.ratingRange.max,
   );
 
-  const isDefaultFilters =
-    JSON.stringify(filters) === JSON.stringify(initialFilters);
+  const isDefaultFilters = isEqual(filters, initialFilters.filters);
 
   if (!hasData) {
     return null;

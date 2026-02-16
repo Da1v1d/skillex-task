@@ -6,17 +6,17 @@ A React SPA with two main features: **Products** (catalog with filters and modal
 
 ## Tech Stack
 
-| Category       | Technology                                     |
-| -------------- | ---------------------------------------------- |
-| **Runtime**    | React 19, TypeScript 5.9                       |
-| **Build**      | Vite 7, @vitejs/plugin-react                   |
-| **Styling**    | Tailwind CSS 4, tailwind-merge, clsx           |
-| **Routing**    | React Router 7                                 |
-| **Data & API** | TanStack React Query 5, Axios                  |
-| **State**      | Zustand 5 (e.g. product filters)               |
-| **UI**         | Lucide React (icons), custom shared components |
-| **Testing**    | Vitest 4, React Testing Library, jsdom         |
-| **Lint**       | ESLint 9, typescript-eslint                    |
+| Category       | Technology                                                                                                                          |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Runtime**    | React 19, TypeScript 5.9                                                                                                            |
+| **Build**      | Vite 7, @vitejs/plugin-react                                                                                                        |
+| **Styling**    | Tailwind CSS 4, tailwind-merge, clsx                                                                                                |
+| **Routing**    | React Router 7                                                                                                                      |
+| **Data & API** | TanStack React Query 5, Axios                                                                                                       |
+| **State**      | Zustand 5 (e.g. product filters). For this type of project, global state libraries are usually unnecessary—React Context is enough. |
+| **UI**         | Lucide React (icons), custom shared components                                                                                      |
+| **Testing**    | Vitest 4, React Testing Library, jsdom                                                                                              |
+| **Lint**       | ESLint 9, typescript-eslint                                                                                                         |
 
 ---
 

@@ -46,10 +46,6 @@ export const CalculatorForm = ({
       className="calculator-form-card relative overflow-hidden border-primary-500/20 bg-linear-to-b from-zinc-900/80 to-zinc-900/50"
       aria-label="Calculator form"
     >
-      <div
-        className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-primary-500/60 to-primary-700/40"
-        aria-hidden
-      />
       <div className="flex items-center gap-2 pl-1">
         <span className="flex size-8 items-center justify-center rounded-lg bg-primary-500/15 text-primary-400">
           <Calculator className="size-4" aria-hidden />

@@ -4,7 +4,7 @@ import Products from "@/features/products/ui/products";
 
 const ProductsPage = () => {
   return (
-    <div className="relative min-h-0 space-y-6">
+    <div className="relative min-h-0 space-y-6 2xl:container mx-auto">
       <PageHeader>
         <div className="relative flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
           <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary-500/20 text-primary-400 ring-1 ring-primary-500/30">

@@ -4,7 +4,7 @@ import { SystemBetCalculator } from "@/features/bet-calculator/ui/system-bet-cal
 
 const BetCalculationPage = () => {
   return (
-    <div className="relative min-h-0">
+    <div className="relative min-h-0 2xl:container mx-auto">
       <PageHeader className="mb-8">
         <div className="relative flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
           <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary-500/20 text-primary-400 ring-1 ring-primary-500/30">
